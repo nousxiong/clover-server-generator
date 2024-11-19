@@ -1,0 +1,9 @@
+package $PO_PACKAGE_NAME
+
+class ${PO_CLASS_NAME}(
+    // TODO: Add properties
+    /* BEGIN GENERATED CODE */
+    val id: Long,
+    val name: String
+    /* END GENERATED CODE */
+)

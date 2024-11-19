@@ -1,0 +1,9 @@
+package $DAO_PACKAGE_NAME
+
+import $PO_PACKAGE_NAME.${PO_CLASS_NAME}
+
+interface ${DAO_CLASS_NAME} {
+    /* BEGIN GENERATED CODE */
+    fun findById(id: Long): ${PO_CLASS_NAME}?
+    /* END GENERATED CODE */
+}

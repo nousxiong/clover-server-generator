@@ -1,0 +1,14 @@
+package $SERVICE_PACKAGE_NAME
+
+import $PO_PACKAGE_NAME.$PO_CLASS_NAME
+import $DAO_PACKAGE_NAME.$DAO_CLASS_NAME
+
+class ${SERVICE_CLASS_NAME}(
+    private val dao: $DAO_CLASS_NAME
+) {
+    /* BEGIN GENERATED CODE */
+    fun getById(id: Long): ${PO_CLASS_NAME}? {
+        return dao.findById(id)
+    }
+    /* END GENERATED CODE */
+}

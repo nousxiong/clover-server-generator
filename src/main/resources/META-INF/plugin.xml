@@ -1,7 +1,7 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.nousxiong.cloverservergenerator</id>
-    <name>clover-server-generator</name>
+    <name>Clover Server Generator</name>
     <vendor>nousxiong</vendor>
 
     <depends>com.intellij.modules.platform</depends>
@@ -10,7 +10,25 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.github.nousxiong.cloverservergenerator.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+
+        <!-- 注册文件模板组工厂 -->
+        <fileTemplateGroup implementation="com.github.nousxiong.cloverservergenerator.MyFileTemplateGroupFactory"/>
+
+        <!-- 注册设置界面 -->
+        <projectConfigurable instance="com.github.nousxiong.cloverservergenerator.settings.PluginSettingsConfigurable"
+                             displayName="Clover Server Generator"
+                             id="com.github.nousxiong.cloverservergenerator.settings.PluginSettingsConfigurable"/>
     </extensions>
+
+    <!-- 注册动作 -->
+    <actions>
+        <action id="GenerateDatabaseClasses"
+                class="com.github.nousxiong.cloverservergenerator.actions.GenerateDatabaseClassesAction"
+                text="Generate Database Classes"
+                description="Generate PO, DAO, Service, Mapper classes based on function name and templates">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+        </action>
+    </actions>
 
     <applicationListeners>
         <listener class="com.github.nousxiong.cloverservergenerator.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
